@@ -1,25 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { OktoProvider, BuildType } from 'okto-sdk-react';
+import LoginPage from './LoginPage';
+
+const OKTO_CLIENT_API_KEY = "f144c56d-f768-426c-b123-f7ee71f8cee8";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <OktoProvider apiKey={OKTO_CLIENT_API_KEY} buildType={BuildType.SANDBOX}>
+            <LoginPage/>
+        </OktoProvider>
+    );
 }
-
 export default App;
